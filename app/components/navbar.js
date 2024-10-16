@@ -24,7 +24,7 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-12">
           <div className="flex font-bold text-2xl">
             <div className="text-white text-opacity-80">Event</div>
-            <div className="text-purple-900">Maxxing</div>
+            <div className="text-violet-900">Maxxing</div>
           </div>
           
           <div className="hidden md:flex space-x-4">
