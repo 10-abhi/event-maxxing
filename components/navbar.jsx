@@ -19,7 +19,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-black p-4">
+    <nav className="bg-black p-4 border-b-2 border-b-violet-950 border-opacity-45">
       <div className="container mx-auto">
         <div className="flex justify-between items-center h-12">
           <div className="flex font-bold text-2xl">
