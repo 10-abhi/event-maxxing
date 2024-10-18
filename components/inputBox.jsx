@@ -12,7 +12,7 @@ export default function InputBox({
                 type={inputType}
                 value={stateValue}
                 onChange={(e) => setStateValue(e.target.value)}
-                className="p-2 border-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="p-2 border-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder={placeholderText}
             />
         </div>
