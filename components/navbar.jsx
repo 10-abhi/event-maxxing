@@ -26,7 +26,7 @@ export const Navbar = () => {
           <div className="hidden md:flex space-x-4">
             <div className="text-white text-xl hover:text-gray-300">Home</div>
             <div className="text-white text-xl hover:text-gray-300">About</div>
-            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">Singup</div>
+            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">SignUp</div>
           </div>
           
           <div className="md:hidden">
@@ -40,7 +40,7 @@ export const Navbar = () => {
           <div className="md:hidden mt-4 bg-gray-900 bg-opacity-70 rounded-lg p-4">
             <div className="text-white text-xl hover:text-gray-300">Home</div>
             <div className="text-white text-xl hover:text-gray-300">About</div>
-            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">Singup</div>
+            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">Sign up</div>
           </div>
         )}
       </div>
