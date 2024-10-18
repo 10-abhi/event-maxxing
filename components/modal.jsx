@@ -3,6 +3,7 @@ import { useState } from "react"
 import InputBox from "./inputBox";
 import { signIn } from "next-auth/react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const FORM_TYPE = {
     "login": {
@@ -143,6 +144,7 @@ export const SignupModal = ({ isVisible, onClose }) => {
     const loginRegisterHandler = async () => {
         if (formType === "login") {
             if (!email || !password) {
+                toast.error("Please enter email and password")
                 return
             }
 
@@ -153,12 +155,21 @@ export const SignupModal = ({ isVisible, onClose }) => {
                 redirect: false
             })
 
-            if (res.ok) {
-                window.location.reload();            
+            switch (res?.status) {
+                case 200:
+                    window.location.reload();
+                    toast.success("You are now logged in.")
+                    break;
+                case 401:
+                    toast.error("Invalid credentials")
+                    break;
+                default:
+                    toast.error("Something went wrong")
             }
 
         } else if (formType === "register") {
             if (!email || !password || !username) {
+                toast.error("Please enter email, password and name")
                 return
             }
 
@@ -173,8 +184,9 @@ export const SignupModal = ({ isVisible, onClose }) => {
 
             if (res.status === 200) {
                 setFormType("otp")
+                toast.success("OTP has been sent to your email. Please verify your account.")
             } else {
-                console.log(res)
+                toast.error(res.data)
             }
         }
     }
@@ -182,8 +194,10 @@ export const SignupModal = ({ isVisible, onClose }) => {
     const otpVerification = async () => {
         try {
             if (!otp) {
+                toast.error("Please enter OTP")
                 return
             } else if (otp.length < 6) {
+                toast.error("Please enter a complete valid OTP")
                 return
             }
 
@@ -205,16 +219,22 @@ export const SignupModal = ({ isVisible, onClose }) => {
                     )
 
                     if (res.ok) {
-                        window.location.reload();            
+                        window.location.reload();
+                        toast.success("Account created successfully. You are now logged in.")
+                    } else {
+                        toast.success("Account created successfully.")
+                        console.log(res.error)
                     }
                 } catch (err) {
+                    toast.success("Account created successfully.")
                     console.log(err)
                 }
             } else {
+                toast.error("Something went wrong")
                 console.log(res.data)
             }
         } catch (err) {
-            console.log(err)
+            toast.error(err.response.data)
         }
     }
 
@@ -223,12 +243,13 @@ export const SignupModal = ({ isVisible, onClose }) => {
             const res = await axios.post("api/auth/resend-otp", { email })
 
             if (res.status === 200) {
-                console.log("")
+                toast.info("OTP has been re-sent to your email")
             } else {
+                toast.error("Something went wrong")
                 console.log(res)
             }
         } catch (err) {
-            console.log(err)
+            toast.error(err.response.data)
         }
     }
 
@@ -236,7 +257,11 @@ export const SignupModal = ({ isVisible, onClose }) => {
         if (formType === "otp") {
             await otpVerification()
         } else {
-            await loginRegisterHandler()
+            try {
+                await loginRegisterHandler()
+            } catch (err) {
+                toast.error(err.response.data)
+            }
         }
     }
 
