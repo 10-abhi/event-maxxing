@@ -37,3 +37,13 @@ const Button = React.forwardRef(({
 Button.displayName = "Button"
  
 export { Button, buttonVariants }
+
+export const ButtonForLanding = ()=>{ 
+  return <div>
+    <button 
+            className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-violet-400 bg-slate-900 border border-violet-600 rounded-md hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-800 transition-colors"
+          >
+            Load More Events Events..
+          </button>
+  </div>
+}

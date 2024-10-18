@@ -1,6 +1,7 @@
 "use client";
-import { Dice1 } from "lucide-react";
+import { Dice1, Divide } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ButtonForLanding } from "./button";
 
 const EventsSection = () => {
   const [selected, setSelected] = useState("current");
@@ -26,7 +27,7 @@ const EventsSection = () => {
     if (isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 3000);
+      },10000);
       // return () => {
       //   clearInterval(interval);
       // };
@@ -88,10 +89,11 @@ const EventsSection = () => {
   ];
 
   return (
-    <div className="flex justify-center h-screen w-screen bg-black text-white">
+      <div className="flex flex-col h-screen w-screen bg-black text-white">
+        <div className="flex justify-center text-4xl font-extrabold"><div className="text-white">Eve</div><div className="text-violet-500">nts</div></div>
       <div className="h-3/4 w-full rounded-lg p-4 md:p-8">
-        <div className="flex  items-center justify-center ">
-          <div className="flex w-3/4  flex-row items-center justify-center gap-24 border" onMouseEnter={()=> handleMouseOver()} onMouseLeave={()=> handleMouseLeave()}>
+        <div className="flex items-center justify-center ">
+          <div className="flex w-3/4  flex-row items-center justify-center gap-24 bg-clip border-2 border-violet-900 border-opacity-90" onMouseEnter={()=> handleMouseOver()} onMouseLeave={()=> handleMouseLeave()}>
             <img
               className="h-3/4 md:h w-96"
               src={events[currentId]?.image}
@@ -108,9 +110,12 @@ const EventsSection = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </div> 
     </div>
+     <div className="flex justify-center items-start mt-0 pt-0">
+     <ButtonForLanding></ButtonForLanding> 
+     </div>
+     </div>
   );
 };
 

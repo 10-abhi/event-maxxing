@@ -24,7 +24,7 @@ export const HomePage = () => {
                     Be A Part Now 
                     </button>
             </div>
-            <Image src={"/rb_442.png"} height={100} width={100} color="blue">
+            <Image src={"/event2.png"} height={100} width={100} >
 
             </Image>
         </div>

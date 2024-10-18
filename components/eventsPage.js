@@ -39,11 +39,11 @@ const events = [
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-black py-8">
       {/* Page Header */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">Upcoming Events</h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <h1 className="text-4xl font-bold text-violet-600">Events </h1>
+        <p className="mt-2 text-lg text-slate-300">
           Discover and register for exciting events happening near you
         </p>
       </div>
@@ -54,11 +54,11 @@ export default function EventsPage() {
           {events.map((event) => (
             <div 
               key={event.id} 
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="bg-slate-900 bg-opacity-60 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex flex-col md:flex-row">
                 {/* Image Section */}
-                <div className="relative h-64 md:h-auto md:w-1/3">
+                <div className="relative text-white h-64 md:h-auto md:w-1/3">
                   <Image
                     src={event.imageUrl}
                     alt={event.title}
@@ -72,7 +72,7 @@ export default function EventsPage() {
                   <div className="flex flex-col h-full">
                     {/* Event Header */}
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                      <h2 className="text-2xl font-bold text-gray-100 mb-2">
                         {event.title}
                       </h2>
                       
@@ -114,7 +114,7 @@ export default function EventsPage() {
                     {/* Footer with Price and Register Button */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div>
-                        <div className="text-2xl font-bold text-blue-600">
+                        <div className="text-2xl font-bold text-white">
                           {event.price}
                         </div>
                         <div className="text-sm text-gray-500">
@@ -123,7 +123,7 @@ export default function EventsPage() {
                       </div>
                       
                       <button 
-                        className="inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                        className="inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-slate-400  rounded-md hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                         onClick={() => window.location.href = `/events/${event.id}`}
                       >
                         Register Now
@@ -139,7 +139,7 @@ export default function EventsPage() {
         {/* Load More Button */}
         <div className="mt-12 text-center">
           <button 
-            className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-blue-600 bg-white border border-blue-600 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-violet-600 bg-slate-900 border border-violet-600 rounded-md hover:bg-violet-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-800 transition-colors"
           >
             Load More Events
           </button>
