@@ -153,6 +153,10 @@ export const SignupModal = ({ isVisible, onClose }) => {
                 redirect: false
             })
 
+            if (res.ok) {
+                window.location.reload();            
+            }
+
         } else if (formType === "register") {
             if (!email || !password || !username) {
                 return
@@ -190,7 +194,7 @@ export const SignupModal = ({ isVisible, onClose }) => {
 
             if (res.status === 200) {
                 try {
-                    await signIn(
+                    const res = await signIn(
                         "credentials",
                         {
                             email,
@@ -199,6 +203,10 @@ export const SignupModal = ({ isVisible, onClose }) => {
                             redirect: false
                         }
                     )
+
+                    if (res.ok) {
+                        window.location.reload();            
+                    }
                 } catch (err) {
                     console.log(err)
                 }
