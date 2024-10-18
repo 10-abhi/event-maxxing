@@ -1,3 +1,4 @@
+import ToastProvider from "@/context/toastProvider";
 import "./globals.css";
 import Provider from "@/context/sessionProvider";
 
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Provider>
-          {children}
+          <ToastProvider>
+            {children}
+          </ToastProvider>
         </Provider>
       </body>
     </html>
