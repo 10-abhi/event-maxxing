@@ -3,23 +3,19 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-
+import {SignupModal } from './modal';
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isVisible , setisVisible] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' },
-  ];
+ 
 
   return (
     <nav className="bg-black p-4 border-b-2 border-b-violet-950 border-opacity-45">
+     <SignupModal isVisible={isVisible} onClose={()=>setisVisible(false)}></SignupModal>
       <div className="container mx-auto">
         <div className="flex justify-between items-center h-12">
           <div className="flex font-bold text-2xl">
@@ -28,11 +24,9 @@ export const Navbar = () => {
           </div>
           
           <div className="hidden md:flex space-x-4">
-            {navItems.map((item) => (
-              <Link key={item.name} href={item.href} className="text-white text-xl hover:text-gray-300">
-                {item.name}
-              </Link>
-            ))}
+            <div className="text-white text-xl hover:text-gray-300">Home</div>
+            <div className="text-white text-xl hover:text-gray-300">About</div>
+            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">Singup</div>
           </div>
           
           <div className="md:hidden">
@@ -43,12 +37,10 @@ export const Navbar = () => {
         </div>
         
         {isOpen && (
-          <div className="md:hidden mt-4 bg-gray-700 rounded-lg p-4">
-            {navItems.map((item) => (
-              <Link key={item.name} href={item.href} className="block text-white hover:text-gray-300 py-2">
-                {item.name}
-              </Link>
-            ))}
+          <div className="md:hidden mt-4 bg-gray-900 bg-opacity-70 rounded-lg p-4">
+            <div className="text-white text-xl hover:text-gray-300">Home</div>
+            <div className="text-white text-xl hover:text-gray-300">About</div>
+            <div onClick={()=>setisVisible(true)} className="text-white text-xl hover:text-gray-300">Singup</div>
           </div>
         )}
       </div>
