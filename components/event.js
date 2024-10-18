@@ -1,52 +1,17 @@
-"use client";
-import { Dice1, Divide } from "lucide-react";
+'use client'
+
 import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ButtonForLanding } from "./button";
 
 const EventsSection = () => {
-  const [selected, setSelected] = useState("current");
-
-  const [currentId, setcurrentId] = useState(1);
-
-  const [isHovered, setisHovered] = useState(false);
-
-  const prevSlide = () => {
-    setcurrentId(currentId - 1);
-  };
-  const nextSlide = () => {
-
-    if(currentId == 6){
-      setcurrentId(1);
-      return;
-    }
-    setcurrentId(currentId + 1);
- 
-  };
-
-  useEffect(() => {
-    if (isHovered) {
-      const interval = setInterval(() => {
-        nextSlide();
-      },3000);
-      // return () => {
-      //   clearInterval(interval);
-      // };
-    }
-    console.log('currentId: '+ currentId);
-  }, [isHovered, currentId]);
-
-  const handleMouseOver = () => {
-    setisHovered(true);
-  };
-  const handleMouseLeave = () => {
-    setisHovered(false);
-  };
+  const [currentId, setCurrentId] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const events = [
     {
       id: 1,
-      image:
-        "https://picsum.photos/200/301",
+      image: "https://picsum.photos/200/300",
       title: "Event 1",
       description: "This is event 1",
       date: "2024-01-01",
@@ -88,34 +53,92 @@ const EventsSection = () => {
     },
   ];
 
-  return (
-      <div className="flex flex-col h-screen w-screen bg-black text-white">
-        <div className="flex justify-center text-4xl font-extrabold"><div className="text-white">Eve</div><div className="text-violet-500">nts</div></div>
-      <div className="h-3/4 w-full rounded-lg p-4 md:p-8">
-        <div className="flex items-center justify-center ">
-          <div className="flex w-3/4  flex-row items-center justify-center gap-24 bg-clip border-2 border-violet-900 border-opacity-90" onMouseEnter={()=> handleMouseOver()} onMouseLeave={()=> handleMouseLeave()}>
-            <img
-              className="h-3/4 md:h w-96"
-              src={events[currentId]?.image}
-              alt={events[currentId]?.title}
-            />
+  const prevSlide = () => {
+    setCurrentId((prev) => (prev === 0 ? events.length - 1 : prev - 1));
+  };
 
-            <div className="">
-              <h3 className="text-xl font-bold">{events[currentId]?.title}</h3>
-              <p className="text-gray-700 mt-2">
-                {events[currentId]?.description}
+  const nextSlide = () => {
+    setCurrentId((prev) => (prev === events.length - 1 ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    let interval;
+    if (isHovered) {
+      interval = setInterval(nextSlide, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  return (
+    <div className="min-h-screen w-full bg-black text-white px-4 py-8 md:px-8 lg:px-16">
+      {/* Header */}
+      <div className="flex justify-center text-4xl font-extrabold mb-12">
+        <span className="text-white">Eve</span>
+        <span className="text-violet-500">nts</span>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto">
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-violet-900/50 p-2 rounded-full hover:bg-violet-900 transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-violet-900/50 p-2 rounded-full hover:bg-violet-900 transition-colors"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Event Card */}
+          <div
+            className="relative overflow-hidden rounded-xl border-2 border-violet-900 bg-black/50 backdrop-blur-sm"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div className="relative flex justify-center">
+              <img
+                className="w-96 object-cover transition-transform duration-500 hover:scale-105"                src={events[currentId].image}
+                alt={events[currentId].title}
+              />
+
+              {/* Progress Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {events.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentId ? "bg-violet-500 w-4" : "bg-white/50"
+                      }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Event Details */}
+            <div className="p-6 md:p-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-violet-400">
+                {events[currentId].title}
+              </h3>
+              <p className="text-gray-300 mt-4 text-lg">
+                {events[currentId].description}
               </p>
-              <p className="text-gray-500 mt-4">
-                Date: {events[currentId]?.date}
+              <p className="text-violet-300 mt-4 font-medium">
+                Date: {events[currentId].date}
               </p>
             </div>
           </div>
-        </div> 
+        </div>
+
+        {/* Button Section */}
+        <div className="flex justify-center mt-8">
+          <ButtonForLanding />
+        </div>
+      </div>
     </div>
-     <div className="flex justify-center items-start mt-0 pt-0">
-     <ButtonForLanding></ButtonForLanding> 
-     </div>
-     </div>
   );
 };
 
