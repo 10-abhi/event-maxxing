@@ -27,7 +27,7 @@ const EventsSection = () => {
     if (isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      },10000);
+      },3000);
       // return () => {
       //   clearInterval(interval);
       // };
