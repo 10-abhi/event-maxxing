@@ -2,6 +2,7 @@ import { X } from "lucide-react"
 import { useState } from "react"
 import InputBox from "./inputBox";
 import { signIn } from "next-auth/react";
+import axios from "axios";
 
 const FORM_TYPE = {
     "login": {
@@ -158,7 +159,7 @@ export const SignupModal = ({ isVisible, onClose }) => {
             }
 
             const res = await axios.post(
-                '/api/auth/register',
+                'api/auth/register',
                 {
                     email,
                     username,
@@ -258,7 +259,7 @@ export const SignupModal = ({ isVisible, onClose }) => {
 
                 <FormComponent formType={formType} username={username} setUsername={setUsername} email={email} setEmail={setEmail} password={password} setPassword={setPassword} otp={otp} setOtp={setOtp} />
 
-                <button class="w-full mt-4 rounded-md bg-gradient-to-tr from-slate-200 to-amber-700 py-2 border-2 border-slate-500 px-2  text-center text-sm text-white " type="button" onSubmit={handleSubmit}>
+                <button class="w-full mt-4 rounded-md bg-gradient-to-tr from-slate-200 to-amber-700 py-2 border-2 border-slate-500 px-2  text-center text-sm text-white " type="button" onClick={handleSubmit}>
                     {FORM_TYPE[formType].submitBtnTxt}   </button>
                 <label className="text-center text-sm">
                     {FORM_TYPE[formType].clickableTxtMsg}

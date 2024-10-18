@@ -5,10 +5,10 @@ import { OTPHandler } from "@/lib/sendEmail";
 
 export async function POST(request) {
     const body = await request.json();
-    const {email, name, password} = body;
+    const {email, username, password} = body;
 
-    if (!name || !email || !password) {
-        return NextResponse.json("Missing value name, email or password", {
+    if (!username || !email || !password) {
+        return NextResponse.json("Missing value username, email or password", {
                 status : 422
             }
         )
@@ -38,14 +38,14 @@ export async function POST(request) {
                 email
             },
             create : {
-                name,
+                name : username,
                 email,
                 hashedPassword,
                 otp,
                 otpExpiry
             },
             update : {
-                name,
+                name : username,
                 hashedPassword,
                 otp,
                 otpExpiry
