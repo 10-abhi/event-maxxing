@@ -158,7 +158,6 @@ export const SignupModal = ({ isVisible, onClose }) => {
             switch (res?.status) {
                 case 200:
                     window.location.reload();
-                    toast.success("You are now logged in.")
                     break;
                 case 401:
                     toast.error("Invalid credentials")
@@ -220,7 +219,6 @@ export const SignupModal = ({ isVisible, onClose }) => {
 
                     if (res.ok) {
                         window.location.reload();
-                        toast.success("Account created successfully. You are now logged in.")
                     } else {
                         toast.success("Account created successfully.")
                         console.log(res.error)
