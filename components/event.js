@@ -26,10 +26,10 @@ const EventsSection = () => {
     if (isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 2000);
-      return () => {
-        clearInterval(interval);
-      };
+      }, 3000);
+      // return () => {
+      //   clearInterval(interval);
+      // };
     }
     console.log('currentId: '+ currentId);
   }, [isHovered, currentId]);
@@ -89,9 +89,9 @@ const EventsSection = () => {
 
   return (
     <div className="flex justify-center h-screen w-screen bg-black text-white">
-      <div className="h-3/4 w-3/4 bg-slate-900 rounded-lg p-4 md:p-8">
-        <div className="flex items-center justify-center ">
-          <div className="flex flex-row items-center justify-center gap-24 border" onMouseEnter={()=> handleMouseOver()} onMouseLeave={()=> handleMouseLeave()}>
+      <div className="h-3/4 w-full rounded-lg p-4 md:p-8">
+        <div className="flex  items-center justify-center ">
+          <div className="flex w-3/4  flex-row items-center justify-center gap-24 border" onMouseEnter={()=> handleMouseOver()} onMouseLeave={()=> handleMouseLeave()}>
             <img
               className="h-3/4 md:h w-96"
               src={events[currentId]?.image}
