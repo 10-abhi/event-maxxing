@@ -4,36 +4,69 @@ import Image from 'next/image'
 const events = [
   {
     id: 1,
-    title: "Tech Innovation Summit",
+    title: "AI Webflow Challlenge",
     date: "June 15, 2024",
     time: "9:00 AM - 5:00 PM",
     location: "Convention Center, New York",
-    description: "Join industry leaders for a day of insights into the latest technological trends and innovations. Network with professionals and learn about cutting-edge developments.",
-    imageUrl: "/api/placeholder/1200/600",
-    price: "$299",
-    seats: "150 seats remaining"
+    description: "Participate in our AI Webflow Challenge, a coding competition where developers, designers and students can showcase their skills and compete for prizes. The challenge is open to individuals and teams of up to 4 people.",
+    imageUrl: "/events/aiWebflowChallenge.jpg",
+    price: "Free Entry",
+    seats: ""
   },
   {
     id: 2,
-    title: "Annual Music Festival",
+    title: "BizVision 2024",
     date: "July 20-22, 2024",
     time: "All Day Event",
     location: "Central Park, Manhattan",
-    description: "Three days of non-stop music featuring top artists from around the world. Experience amazing performances, food stalls, and art installations.",
-    imageUrl: "/api/placeholder/1200/600",
-    price: "$199",
-    seats: "500 seats remaining"
+    description: "Showcase innovative ideas and concepts through presentations, product demos, and exhibitions. A unique opportunity to network with industry leaders and like-minded professionals.",
+    imageUrl: "/events/bizVision.jpg",
+    price: "Free Entry",
+    seats: ""
   },
   {
     id: 3,
-    title: "Food & Wine Expo",
+    title: "Crafty Craft",
     date: "August 5, 2024",
     time: "11:00 AM - 8:00 PM",
     location: "Grand Hotel, Chicago",
-    description: "Indulge in culinary delights from top chefs. Featuring wine tasting sessions, cooking demonstrations, and gourmet food sampling.",
-    imageUrl: "/api/placeholder/1200/600",
+    description: "Join us for a free event where industry experts and researchers will share their latest research in AI, robotics, and machine learning. This event is perfect for students, professionals, and anyone interested in refining their research skills.",
+    imageUrl: "/events/craftyCraft.jpg",
     price: "$149",
-    seats: "200 seats remaining"
+    seats: ""
+  },
+  {
+    id: 4,
+    title: "Project Prism",
+    date: "August 5, 2024",
+    time: "11:00 AM - 8:00 PM",
+    location: "Grand Hotel, Chicago",
+    description: "Explore the world of AI and robotics with our panel of industry experts and researchers. This event is perfect for students, professionals, and anyone interested in learning about the latest advancements and innovations in the field.",
+    imageUrl: "/events/projectPrism.jpg",
+    price: "Free Entry",
+    seats: ""
+  },
+  {
+    id: 5,
+    title: "Prompt Tale",
+    date: "August 5, 2024",
+    time: "11:00 AM - 8:00 PM",
+    location: "Grand Hotel, Chicago",
+    description: "Leverage advanced meta prompt techniques to craft compelling narrative text for an AI-driven image generation model, enabling the creation of high-quality visual content.",
+    imageUrl: "/events/promptTale.jpg",
+    price: "$149",
+    seats: ""
+  },
+  {
+    id: 6,
+    title: "TCS Placement Talk",
+    date: "August 5, 2024",
+    time: "11:00 AM - 8:00 PM",
+    location: "Grand Hotel, Chicago",
+    description: "Get an opportunity to learn more about Tata Consultancy Services (TCS) and their recruitment process. Interact with the HRs and get tips on how to crack the placement drive.",
+    imageUrl: "/events/tcsPlacementTalk.jpg",
+    price: "Free Entry",
+    seats: ""
   }
 ]
 

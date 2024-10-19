@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ButtonForLanding } from "./button";
+import Image from "next/image";
 
 const EventsSection = () => {
   const [currentId, setCurrentId] = useState(0);
@@ -11,46 +12,46 @@ const EventsSection = () => {
   const events = [
     {
       id: 1,
-      image: "https://picsum.photos/200/300",
-      title: "Event 1",
-      description: "This is event 1",
-      date: "2024-01-01",
+      title: "AI Webflow Challlenge",
+      date: "June 15, 2024",
+      description: "Participate in our AI Webflow Challenge, a coding competition where developers, designers and students can showcase their skills and compete for prizes. The challenge is open to individuals and teams of up to 4 people.",
+      imageUrl: "/events/aiWebflowChallenge.jpg",
     },
     {
       id: 2,
-      image: "https://picsum.photos/200/301",
-      title: "Event 2",
-      description: "This is event 2",
-      date: "2024-01-02",
+      title: "BizVision 2024",
+      date: "July 20-22, 2024",
+      description: "Showcase innovative ideas and concepts through presentations, product demos, and exhibitions. A unique opportunity to network with industry leaders and like-minded professionals.",
+      imageUrl: "/events/bizVision.jpg",
     },
     {
       id: 3,
-      image: "https://picsum.photos/200/302",
-      title: "Event 3",
-      description: "This is event 3",
-      date: "2024-01-03",
+      title: "Crafty Craft",
+      date: "August 5, 2024",
+      description: "Join us for a free event where industry experts and researchers will share their latest research in AI, robotics, and machine learning. This event is perfect for students, professionals, and anyone interested in refining their research skills.",
+      imageUrl: "/events/craftyCraft.jpg",
     },
     {
       id: 4,
-      image: "https://picsum.photos/200/303",
-      title: "Event 4",
-      description: "This is event 4",
-      date: "2023-01-01",
+      title: "Project Prism",
+      date: "August 5, 2024",
+      description: "Explore the world of AI and robotics with our panel of industry experts and researchers. This event is perfect for students, professionals, and anyone interested in learning about the latest advancements and innovations in the field.",
+      imageUrl: "/events/projectPrism.jpg",
     },
     {
       id: 5,
-      image: "https://picsum.photos/200/304",
-      title: "Event 5",
-      description: "This is event 5",
-      date: "2023-01-02",
+      title: "Prompt Tale",
+      date: "August 5, 2024",
+      description: "Leverage advanced meta prompt techniques to craft compelling narrative text for an AI-driven image generation model, enabling the creation of high-quality visual content.",
+      imageUrl: "/events/promptTale.jpg",
     },
     {
       id: 6,
-      image: "https://picsum.photos/200/305",
-      title: "Event 6",
-      description: "This is event 6",
-      date: "2023-01-03",
-    },
+      title: "TCS Placement Talk",
+      date: "August 5, 2024",
+      description: "Get an opportunity to learn more about Tata Consultancy Services (TCS) and their recruitment process. Interact with the HRs and get tips on how to crack the placement drive.",
+      imageUrl: "/events/tcsPlacementTalk.jpg",
+    }
   ];
 
   const prevSlide = () => {
@@ -101,8 +102,11 @@ const EventsSection = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <div className="relative flex justify-center">
-              <img
-                className="w-96 object-cover transition-transform duration-500 hover:scale-105"                src={events[currentId].image}
+              <Image
+                // className="w-96 object-cover transition-transform duration-500 hover:scale-105"
+                src={events[currentId].imageUrl}
+                width={320}
+                height={320}
                 alt={events[currentId].title}
               />
 
