@@ -7,9 +7,14 @@ const AdminDashboard = () => {
     { id: 1, name: 'AJTIMEPYRO', email: 'aj@example.com', role: 'admin' },
     { id: 2, name: 'ABHISHEK', email: 'abhi@example.com', role: 'publisher' },
     { id: 3, name: 'ALOK JHA', email: 'alom@example.com', role: 'user' },
+    { id: 1, name: 'AJTIMEPYRO', email: 'aj@example.com', role: 'admin' },
+    { id: 2, name: 'ABHISHEK', email: 'abhi@example.com', role: 'publisher' },
+    { id: 3, name: 'ALOK JHA', email: 'alom@example.com', role: 'user' },
   ]);
 
   const [events, setEvents] = useState([
+    { id: 1, title: 'Hackfest', date: '2024-07-15', status: 'published' },
+    { id: 2, title: 'Cobe Cubicles', date: '2024-08-20', status: 'draft' },
     { id: 1, title: 'Hackfest', date: '2024-07-15', status: 'published' },
     { id: 2, title: 'Cobe Cubicles', date: '2024-08-20', status: 'draft' },
   ]);
@@ -128,8 +133,8 @@ const AdminDashboard = () => {
   );
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-black">
-      <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
+    <div className="p-6 max-w-6xl mx-auto bg-violet-950 bg-opacity-35">
+      <h1 className="text-3xl text-violet-600 font-bold mb-6">Admin Dashboard</h1>
       
       {/* Tabs */}
       <div className="border-b mb-6">
