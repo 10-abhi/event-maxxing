@@ -35,7 +35,7 @@ export const Navbar = () => {
           <div className="hidden md:flex space-x-4">
             <div className="text-white text-xl hover:text-gray-300 cursor-pointer">Home</div>
             <div className="text-white text-xl hover:text-gray-300 cursor-pointer">About</div>
-            <div className="text-white text-xl hover:text-gray-300 cursor-pointer" onClick={loginLogoutHandler}>{session.status === "authenticated" ? "Logout" : "Sign In/Sign Up"}</div>
+            <div className="text-white text-xl hover:text-gray-300 cursor-pointer" onClick={loginLogoutHandler}>{session.status === "authenticated" ? "Logout" : "Login"}</div>
           </div>
 
           <div className="md:hidden">
@@ -49,12 +49,8 @@ export const Navbar = () => {
           <div className="md:hidden mt-4 bg-gray-900 bg-opacity-70 rounded-lg p-4">
             <div className="text-white text-xl hover:text-gray-300">Home</div>
             <div className="text-white text-xl hover:text-gray-300">About</div>
-            {
-              session.status === "authenticated" ?
-                <div>Logout</div> :
-                <div onClick={() => setisVisible(true)} className="text-white text-xl hover:text-gray-300">Sign up</div>
-            }
-            <div className="text-white text-xl hover:text-gray-300" onClick={loginLogoutHandler}>{session.status === "authenticated" ? "Logout" : "Sign In/Sign Up"}</div>
+
+            <div className="text-white text-xl hover:text-gray-300" onClick={loginLogoutHandler}>{session.status === "authenticated" ? "Logout" : "Login"}</div>
           </div>
         )}
       </div>
